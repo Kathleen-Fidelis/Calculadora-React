@@ -7,18 +7,54 @@ class Calculator extends Component {
 
     state = {
         displayValue: '0',
+        number1: null, 
+        number2: null
     }
 
     clearMemory = () => {
         this.setState({displayValue: 0})
+   
     }
 
     setOperation = (operation) => {
-        this.setState({displayValue: operation})
+        if (operation == "+"){
+            let result = this.state.number1 + this.state.number2
+            this.setState({displayValue: result})
+            console.log(result)
+            return result
+        } else if (operation == "-"){
+            let result = this.state.number1 - this.state.number2
+            this.setState({displayValue: result})
+            console.log(result)
+        } else if (operation == "*"){
+            let result = this.state.number1 * this.state.number2
+            this.setState({displayValue: result})
+            console.log(result)
+        } else if (operation == "/"){
+            let result = this.state.number1 / this.state.number2
+            this.setState({displayValue: result})
+            console.log(result)
+        }
+
+        if (operation == "="){
+            let result = this.setState({displayValue : result})
+             console.log(result)
+         }
+
+
+        
     }
 
     addDigit = (digit) => {
-        this.setState({displayValue: digit})
+        /*if (this.state.number1 != null){
+            this.setState({number1: parseInt(digit)})
+        }
+
+        if (this.state.number2 != null){
+            this.setState({number2: parseInt(digit)})
+        }*/
+        let valor = this.state.displayValue + digit
+        this.setState({displayValue: parseInt(valor)})
     }
 
     render() {
